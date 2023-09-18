@@ -21,14 +21,14 @@ namespace MvcProjectCamp.Controllers
             return View(categoryvalues);
         }
         [HttpGet]
-        public ActionResult AddCategory() 
+        public ActionResult AddCategory()
         {
-        return View();
+            return View();
         }
         [HttpPost]
-        public ActionResult AddCategory(Category p) 
+        public ActionResult AddCategory(Category p)
         {
-        CategoryValidator categoryValidator = new CategoryValidator();
+            CategoryValidator categoryValidator = new CategoryValidator();
             ValidationResult validationResult = categoryValidator.Validate(p);
             if (validationResult.IsValid)
             {
@@ -39,17 +39,30 @@ namespace MvcProjectCamp.Controllers
             {
                 foreach (var item in validationResult.Errors)
                 {
-                    ModelState.AddModelError(item.PropertyName,item.ErrorMessage);
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
                 }
             }
             return View();
         }
 
-        public ActionResult DeleteCategory(int id) 
+        public ActionResult DeleteCategory(int id)
         {
             var categoryvalue = cm.GetById(id);
             cm.CategoryDelete(categoryvalue);
             return View();
         }
+        [HttpGet]
+        public ActionResult EditCategory(int id)
+        {
+            var categoryvalue = cm.GetById(id);
+            return View(categoryvalue);
+        }
+        [HttpPost]
+        public ActionResult EditCategory(Category category)
+        {
+            cm.CategoryUpdate(category);
+            return RedirectToAction("Index");
+        }
+
     }
 }
