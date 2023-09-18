@@ -5,6 +5,7 @@ using EntityLayer.Concrete;
 using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -14,7 +15,7 @@ namespace MvcProjectCamp.Controllers
     public class WriterController : Controller
     {
         WriterManager wm = new WriterManager(new EFWriterDal());
-
+        WriterValidator WriterValidator = new WriterValidator();
         // GET: Writer
         public ActionResult Index()
         {
@@ -29,7 +30,7 @@ namespace MvcProjectCamp.Controllers
         [HttpPost]
         public ActionResult AddWriter(Writer writer)
         {
-            WriterValidator WriterValidator = new WriterValidator();
+           
             ValidationResult result = WriterValidator.Validate(writer);
             if (result.IsValid)
             {
@@ -46,7 +47,32 @@ namespace MvcProjectCamp.Controllers
             }
             return View();
         }
-        
+        [HttpGet]
+        public ActionResult EditWriter(int id) 
+        {
+        var writervalue =wm.GetById(id);
+            return View(writervalue);   
+        }
+        [HttpPost]
+        public ActionResult EditWriter(Writer writer)
+        {
+            ValidationResult result = WriterValidator.Validate(writer);
+            if (result.IsValid)
+            {
+                wm.WriterUpdate(writer);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                foreach (var item in result.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+
+            }
+           
+            return RedirectToAction("Index");
+        }
     }
 
 }

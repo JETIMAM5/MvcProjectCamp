@@ -14,6 +14,7 @@ namespace BusinessLayer.ValidationRules
         {
             RuleFor(x => x.WriterName).NotEmpty().WithMessage("You must enter a Writer name !");
             RuleFor(x => x.WriterSurname).NotEmpty().WithMessage("You must enter a Surname !");
+            RuleFor(x => x.WriterTitle).NotEmpty().WithMessage("You must enter a Title !");
             RuleFor(x => x.WriterAbout).NotEmpty().WithMessage("You must enter an About part !");
             RuleFor(x => x.WriterAbout).Must(c => c != null && c.ToUpper().Contains("A")).WithMessage("About Part must contain an (A,a) letter");
             RuleFor(x => x.WriterName).MinimumLength(2).WithMessage("Writer name must have contain at least 2 characters");
