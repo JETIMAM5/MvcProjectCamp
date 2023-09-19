@@ -83,6 +83,18 @@
     <Compile Include="Migrations\202309181324267_mig_writertitle_add.designer.cs">
       <DependentUpon>202309181324267_mig_writertitle_add.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\.cs" />
+    <Compile Include="Migrations\.designer.cs">
+      <DependentUpon>.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202309191232032_UpdateDatabase.cs" />
+    <Compile Include="Migrations\202309191232032_UpdateDatabase.designer.cs">
+      <DependentUpon>202309191232032_UpdateDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202309191257269_mig_writer_addstatus.cs" />
+    <Compile Include="Migrations\202309191257269_mig_writer_addstatus.designer.cs">
+      <DependentUpon>202309191257269_mig_writer_addstatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -108,6 +120,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202309181324267_mig_writertitle_add.resx">
       <DependentUpon>202309181324267_mig_writertitle_add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\.resx">
+      <DependentUpon>.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202309191232032_UpdateDatabase.resx">
+      <DependentUpon>202309191232032_UpdateDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202309191257269_mig_writer_addstatus.resx">
+      <DependentUpon>202309191257269_mig_writer_addstatus.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
