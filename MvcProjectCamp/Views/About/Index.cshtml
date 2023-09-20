@@ -4,7 +4,6 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
 <h2>About Data List</h2>
 <table class="table table-bordered">
     <tr>
@@ -20,37 +19,7 @@
             <td>Heading</td>
             <td><a href="#" class="btn btn-warning">Activate</a></td>
             <td><a href="#" class="btn btn-danger">Pacify</a></td>
-           
         </tr>
     }
 </table>
-<button class="btn btn-primary" data-toggle="modal" data-target="#Modal1">
-    Enter a New About Section!
-</button>
-
-<div class="modal" id="Modal1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">About Section</h2>
-            </div>
-            <form method="post" action="/About/AddAbout/">
-                <div class="modal-body">
-                    <label>Section 1</label>
-                    <input type="text" name="AboutDetails1" class="form-control" />
-                    <br />
-                    <label>Section 2</label>
-                    <input type="text" name="AboutDetails2" class="form-control" />
-                    <br />
-                    <label>Section Image 1</label>
-                    <input type="text" name="AboutImage1" class="form-control" />
-                    <br />
-                    <label>Section Image 2</label>
-                    <input type="text" name="AboutImage2" class="form-control" />
-                    <br />
-                    <button class="btn btn-info">Save</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+@Html.Action("AboutPartial","About")
