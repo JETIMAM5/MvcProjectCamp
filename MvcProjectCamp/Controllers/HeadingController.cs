@@ -48,9 +48,40 @@ namespace MvcProjectCamp.Controllers
             hm.HeadingAdd(heading);
             return RedirectToAction("Index");
         }
-        public ActionResult ContentByHeading() 
+        [HttpGet]
+        public ActionResult EditHeading(int id) 
         {
-        return View();
+            List<SelectListItem> valuecategory = (from x in cm.GetList()
+                                                  select new SelectListItem
+                                                  {
+                                                      Text = x.CategoryName,
+                                                      Value = x.CategoryID.ToString()
+                                                  }).ToList();
+            ViewBag.vlc = valuecategory;
+            var headingvalues= hm.GetById(id);
+            return View(headingvalues);
+        }
+        [HttpPost]
+        public ActionResult EditHeading(Heading heading) 
+        {
+        hm.HeadingUpdate(heading);
+            return RedirectToAction("Index");
+        }
+        public ActionResult DeleteHeading(int id) 
+        {
+            var headingvalue=hm.GetById(id);
+            if (headingvalue.HeadingStatus==true)
+            {
+                headingvalue.HeadingStatus = false;
+                hm.HeadingDelete(headingvalue);
+            }
+            else
+            {
+                headingvalue.HeadingStatus=true;
+                hm.HeadingDelete(headingvalue);
+            }
+            return RedirectToAction("Index");
         }
     }
+    
 }
