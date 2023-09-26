@@ -1,11 +1,13 @@
 ﻿using BusinessLayer.Concrete;
 using BusinessLayer.ValidationRules;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Services.Description;
 
 namespace MvcProjectCamp.Controllers
 {
@@ -16,6 +18,7 @@ namespace MvcProjectCamp.Controllers
         ContactValidator cv = new ContactValidator();
         public ActionResult Index()
         {
+        
             var contactvalues = cm.GetList();
             return View(contactvalues);
         }
@@ -26,6 +29,7 @@ namespace MvcProjectCamp.Controllers
         }
         public PartialViewResult MessageListMenu() 
         {
+        
             return PartialView();
         }
     }
