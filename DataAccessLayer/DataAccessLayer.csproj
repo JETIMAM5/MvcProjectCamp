@@ -56,6 +56,7 @@
     <Compile Include="Abstract\IContactDal.cs" />
     <Compile Include="Abstract\IContentDal.cs" />
     <Compile Include="Abstract\IHeadingDal.cs" />
+    <Compile Include="Abstract\IImageDal.cs" />
     <Compile Include="Abstract\IMessageDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="EntityFramework\EFContactDal.cs" />
     <Compile Include="EntityFramework\EFContentDal.cs" />
     <Compile Include="EntityFramework\EFHeadingDal.cs" />
+    <Compile Include="EntityFramework\EFImageDal.cs" />
     <Compile Include="EntityFramework\EFMessageDal.cs" />
     <Compile Include="EntityFramework\EFWriterDal.cs" />
     <Compile Include="Migrations\202309060746428_mig1.cs" />
@@ -112,6 +114,14 @@
     <Compile Include="Migrations\202309260714283_mig_contact_add_date.cs" />
     <Compile Include="Migrations\202309260714283_mig_contact_add_date.designer.cs">
       <DependentUpon>202309260714283_mig_contact_add_date.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202309261115269_mig_addimage_file.cs" />
+    <Compile Include="Migrations\202309261115269_mig_addimage_file.designer.cs">
+      <DependentUpon>202309261115269_mig_addimage_file.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202309261209238_update_Image_to_ImageFile.cs" />
+    <Compile Include="Migrations\202309261209238_update_Image_to_ImageFile.designer.cs">
+      <DependentUpon>202309261209238_update_Image_to_ImageFile.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -159,6 +169,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202309260714283_mig_contact_add_date.resx">
       <DependentUpon>202309260714283_mig_contact_add_date.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202309261115269_mig_addimage_file.resx">
+      <DependentUpon>202309261115269_mig_addimage_file.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202309261209238_update_Image_to_ImageFile.resx">
+      <DependentUpon>202309261209238_update_Image_to_ImageFile.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

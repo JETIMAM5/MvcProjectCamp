@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EntityLayer.Concrete
 {
-    public class Image
+    public class ImageFile
     {
         [Key]
         public int ImageID { get; set; }
