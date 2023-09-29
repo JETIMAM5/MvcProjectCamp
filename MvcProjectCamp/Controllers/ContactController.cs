@@ -29,7 +29,6 @@ namespace MvcProjectCamp.Controllers
         }
         public PartialViewResult MessageListMenu() 
         {
-        
             return PartialView();
         }
     }
