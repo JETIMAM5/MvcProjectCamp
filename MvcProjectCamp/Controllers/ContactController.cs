@@ -19,7 +19,7 @@ namespace MvcProjectCamp.Controllers
 
         public ActionResult Index()
         {
-        
+
             var contactvalues = cm.GetList();
             return View(contactvalues);
         }
@@ -28,11 +28,15 @@ namespace MvcProjectCamp.Controllers
             var contactvalues = cm.GetById(id);
             return View(contactvalues);
         }
-        public PartialViewResult MessageListMenu() 
+        public PartialViewResult MessageListMenu(Message message)
         {
-         Context c = new Context();
-            var messagecount = c.Messages.Count();
-            ViewBag.messages = messagecount;
+            using (var db = new Context())
+            {
+                var InboxCount = db.Messages.Where(x => x.ReceiverMail == "admin@gmail.com").Count();
+                var ContactCount = db.Contacts.Count();
+                ViewBag.inboxcount = InboxCount;
+                ViewBag.contactcount = ContactCount;
+            }
             return PartialView();
         }
     }
