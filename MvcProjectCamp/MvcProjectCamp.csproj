@@ -2398,6 +2398,16 @@
     <Content Include="AdminLTE-3.0.4\login-form-19\scss\bootstrap\_utilities.scss" />
     <Content Include="AdminLTE-3.0.4\login-form-19\scss\bootstrap\_variables.scss" />
     <Content Include="AdminLTE-3.0.4\login-form-19\scss\style.scss" />
+    <Content Include="web\css\style.css" />
+    <Content Include="web\images\5.jpg" />
+    <Content Include="web\images\img1.jpg" />
+    <Content Include="web\images\sprite.png" />
+    <Content Include="web\index.html" />
+    <Content Include="web\js\bars.js" />
+    <Content Include="web\js\easyResponsiveTabs.js" />
+    <Content Include="web\js\jquery-1.11.1.min.js" />
+    <Content Include="web\js\jquery.circlechart.js" />
+    <Content Include="web\w3layouts-License.txt" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
