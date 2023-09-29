@@ -16,6 +16,7 @@ namespace MvcProjectCamp.Controllers
         // GET: Contact
         ContactManager cm = new ContactManager(new EFContactDal());
         ContactValidator cv = new ContactValidator();
+
         public ActionResult Index()
         {
         
@@ -29,6 +30,9 @@ namespace MvcProjectCamp.Controllers
         }
         public PartialViewResult MessageListMenu() 
         {
+         Context c = new Context();
+            var messagecount = c.Messages.Count();
+            ViewBag.messages = messagecount;
             return PartialView();
         }
     }
