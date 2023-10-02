@@ -2,7 +2,7 @@
 @model  List<Heading>
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
 }
 @{string color = ""; }
 
@@ -96,9 +96,6 @@
                                     </ul>
                                 </td>
                                 <td>
-                                    @item.HeadingStatus
-                                </td>
-                                <td>
                                     @{
                                         string state = "";
                                         string colorr = "";
@@ -145,7 +142,7 @@
                                             <a class="btn btn-danger btn-sm" href="/Heading/DeleteHeading/@item.HeadingID">
                                                 <i class="fas fa-trash">
                                                 </i>
-                                                 Activate
+                                                Activate
                                             </a>
                                         }
                                     }
@@ -162,7 +159,7 @@
     </section>
 </body>
 </html>
-        <a href="/Heading/AddHeading/" class="btn btn-primary">New Heading</a>
+<a href="/Heading/AddHeading/" class="btn btn-primary">New Heading</a>
 
 
 

@@ -26,7 +26,7 @@ namespace MvcProjectCamp.Controllers
             {
                 FormsAuthentication.SetAuthCookie(adminuserinfo.AdminUserName,false);
                 Session["AdminUserName"]=adminuserinfo.AdminUserName;
-                return RedirectToAction("Index" ,"AdminCategory");
+                return RedirectToAction("Inbox" ,"Message");
             }
             else
             {
