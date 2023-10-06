@@ -1,10 +1,8 @@
 ﻿@model EntityLayer.Concrete.Message
 @{
     ViewBag.Title = "NewMessage";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
 }
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,12 +37,12 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                @Html.Action("MessageListMenu", "Contact")
+                @Html.Action("MessageListMenu", "WriterPanelMessage")
                 <!-- /.col -->
                 <div class="col-md-9">
-                    @using (Html.BeginForm("NewMessage", "Message", FormMethod.Post))
+                    @using (Html.BeginForm("NewMessage", "WriterPanelMessage", FormMethod.Post))
                     {
-                        <div class="card card-primary card-outline">
+                        <div><div class="card card-primary card-outline">
                             <div class="card-header">
                                 <h3 class="card-title">Compose New Message</h3>
                             </div>
@@ -84,37 +82,37 @@
                                 <button type="reset" class="btn btn-default"><i class="fas fa-times"></i> Discard</button>
                             </div>
                             <!-- /.card-footer -->
-                        </div>
+                        </div></div>
                         <!-- /.card -->
                     }
-                    </div>
-                
-                    <!-- /.col -->
                 </div>
-                <!-- /.row -->
-            </div><!-- /.container-fluid -->
-        </section>
-        <!-- /.content -->
-        <!-- /.content-wrapper -->
-        <!-- Control Sidebar -->
-        <!-- /.control-sidebar -->
-        <!-- ./wrapper -->
-        <!-- jQuery -->
-        <script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
-        <!-- Bootstrap 4 -->
-        <script src="~/AdminLTE-3.0.4/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <!-- AdminLTE App -->
-        <script src="~/AdminLTE-3.0.4/dist/js/adminlte.min.js"></script>
-        <!-- AdminLTE for demo purposes -->
-        <script src="~/AdminLTE-3.0.4/dist/js/demo.js"></script>
-        <!-- Summernote -->
-        <!--<script src="~/AdminLTE-3.0.4/plugins/summernote/summernote-bs4.min.js"></script>-->
-        <!-- Page Script -->
-        <!--<script>
-        $(function () {
-            //Add text editor
-            $('#compose-textarea').summernote()
-          })</script>-->
-    </body>
+
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+    <!-- /.content-wrapper -->
+    <!-- Control Sidebar -->
+    <!-- /.control-sidebar -->
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+    <script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/AdminLTE-3.0.4/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/AdminLTE-3.0.4/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/AdminLTE-3.0.4/dist/js/demo.js"></script>
+    <!-- Summernote -->
+    <!--<script src="~/AdminLTE-3.0.4/plugins/summernote/summernote-bs4.min.js"></script>-->
+    <!-- Page Script -->
+    <!--<script>
+    $(function () {
+        //Add text editor
+        $('#compose-textarea').summernote()
+      })</script>-->
+</body>
 </html>
 
