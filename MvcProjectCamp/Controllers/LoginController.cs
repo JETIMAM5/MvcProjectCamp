@@ -47,7 +47,7 @@ namespace MvcProjectCamp.Controllers
             {
                 FormsAuthentication.SetAuthCookie(writeruserinfo.WriterMail, false);
                 Session["WriterMail"] = writeruserinfo.WriterMail;
-                return RedirectToAction("Inbox", "WriterPanelMessage");
+                return RedirectToAction("MyContent", "WriterPanelContent");
             }
             else
             {
