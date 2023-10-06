@@ -32,7 +32,27 @@ namespace MvcProjectCamp.Controllers
             {
                 return RedirectToAction("Index");
             }
+        }
+        [HttpGet]
+        public ActionResult WriterLogin() 
+        {
             return View();
+        }
+        [HttpPost]
+        public ActionResult WriterLogin(Writer writer)
+        {
+            Context c = new Context();
+            var writeruserinfo = c.Writers.FirstOrDefault(x => x.WriterMail == writer.WriterMail && x.WriterPassword == writer.WriterPassword);
+            if (writeruserinfo != null)
+            {
+                FormsAuthentication.SetAuthCookie(writeruserinfo.WriterMail, false);
+                Session["WriterMail"] = writeruserinfo.WriterMail;
+                return RedirectToAction("Inbox", "WriterPanelMessage");
+            }
+            else
+            {
+                return RedirectToAction("WriterLogin");
+            }
         }
     }
 }
