@@ -25,12 +25,12 @@ namespace BusinessLayer.Concrete
 
         public List<Message> GetListInbox()
         {
-            return _messageDal.List(x => x.ReceiverMail == "admin@gmail.com").OrderBy(x => x.MessageDate).ToList();
+            return _messageDal.List(x => x.ReceiverMail == "eml@outlook.com").OrderBy(x => x.MessageDate).ToList();
         }
 
         public List<Message> GetListSendbox()
         {
-            return _messageDal.List(x => x.SenderMail == "admin@gmail.com").OrderBy(x => x.MessageDate).ToList();
+            return _messageDal.List(x => x.SenderMail == "eml@outlook.com").OrderBy(x => x.MessageDate).ToList();
             
         }
 
