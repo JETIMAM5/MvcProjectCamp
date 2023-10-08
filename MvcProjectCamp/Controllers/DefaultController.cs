@@ -8,21 +8,25 @@ using System.Web.Mvc;
 
 namespace MvcProjectCamp.Controllers
 {
+    [AllowAnonymous]
     public class DefaultController : Controller
     {
+       
 
         HeadingManager hm = new HeadingManager(new EFHeadingDal());
+        ContentManager cm = new ContentManager(new EFContentDal());
         // GET: Default
 
-        [AllowAnonymous]
+        
         public ActionResult Headings()
         {
             var HeadingList=hm.GetList();
             return View(HeadingList);
         }
-        public ActionResult Index()
+        public PartialViewResult Index()
         {
-            return View();
+            var contentlist = cm.GetList();
+            return PartialView(contentlist);
         }
     }
 }
