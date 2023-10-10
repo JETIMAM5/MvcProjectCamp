@@ -23,9 +23,9 @@ namespace MvcProjectCamp.Controllers
             var HeadingList=hm.GetList();
             return View(HeadingList);
         }
-        public PartialViewResult Index()
+        public PartialViewResult Index(int id = 0)
         {
-            var contentlist = cm.GetList();
+            var contentlist = cm.GetListByHeadingId(id);
             return PartialView(contentlist);
         }
     }

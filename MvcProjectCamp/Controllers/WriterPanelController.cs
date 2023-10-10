@@ -92,5 +92,11 @@ namespace MvcProjectCamp.Controllers
             }
             return RedirectToAction("MyHeading");
         }
+        public ActionResult AllHeading() 
+        {
+            var headings = hm.GetList();
+            return View(headings);
+        
+        }
     }
 }
