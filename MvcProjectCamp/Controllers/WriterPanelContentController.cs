@@ -27,8 +27,9 @@ namespace MvcProjectCamp.Controllers
 
         }
         [HttpGet]
-        public ActionResult AddContent()
+        public ActionResult AddContent(int id)
         {
+            ViewBag.d=id;
             return View();
         }
         [HttpPost]
@@ -42,5 +43,6 @@ namespace MvcProjectCamp.Controllers
             cm.ContentAdd(content);
             return RedirectToAction("MyContent");
         }
+    
     }
 }
