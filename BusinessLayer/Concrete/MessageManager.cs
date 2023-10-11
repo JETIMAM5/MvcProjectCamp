@@ -23,14 +23,14 @@ namespace BusinessLayer.Concrete
             return _messageDal.Get(x => x.MessageID == id);
         }
 
-        public List<Message> GetListInbox()
+        public List<Message> GetListInbox(string p)
         {
-            return _messageDal.List(x => x.ReceiverMail == "eml@outlook.com").OrderBy(x => x.MessageDate).ToList();
+            return _messageDal.List(x => x.ReceiverMail == p).OrderBy(x => x.MessageDate).ToList();
         }
 
-        public List<Message> GetListSendbox()
+        public List<Message> GetListSendbox(string p)
         {
-            return _messageDal.List(x => x.SenderMail == "eml@outlook.com").OrderBy(x => x.MessageDate).ToList();
+            return _messageDal.List(x => x.SenderMail == p).OrderBy(x => x.MessageDate).ToList();
             
         }
 
