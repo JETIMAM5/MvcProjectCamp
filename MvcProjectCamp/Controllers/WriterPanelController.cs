@@ -16,34 +16,38 @@ namespace MvcProjectCamp.Controllers
     {
         CategoryManager cm = new CategoryManager(new EFCategoryDal());
         HeadingManager hm = new HeadingManager(new EFHeadingDal());
+        WriterManager wm = new WriterManager(new EFWriterDal());
         Context c = new Context();
-       
+
         // GET: WriterPanel
-        public ActionResult WriterProfile()
+        public ActionResult WriterProfile(string p)
         {
-            return View();
+            p = (string)Session["WriterMail"];
+            var id = c.Writers.Where(x => x.WriterMail == p && x.WriterStatus == true ).Select(y => y.WriterID).FirstOrDefault();
+            var writervalue = wm.GetById(id);
+            return View(writervalue);
         }
-       
+
         public ActionResult MyHeading(string p)
         {
-            
+
             p = (string)Session["WriterMail"];
-            var writeridinfo=c.Writers.Where(x=>x.WriterMail==p).Select(y=>y.WriterID).FirstOrDefault();
-         
+            var writeridinfo = c.Writers.Where(x => x.WriterMail == p).Select(y => y.WriterID).FirstOrDefault();
+
             var values = hm.GetListByWriter(writeridinfo);
             return View(values);
         }
         [HttpGet]
-        public ActionResult NewHeading() 
+        public ActionResult NewHeading()
         {
-            
+
             List<SelectListItem> valuecategory = (from x in cm.GetList()
                                                   select new SelectListItem
                                                   {
                                                       Text = x.CategoryName,
                                                       Value = x.CategoryID.ToString()
                                                   }).ToList();
-            ViewBag.vlc=valuecategory;
+            ViewBag.vlc = valuecategory;
 
             return View();
         }
@@ -58,7 +62,7 @@ namespace MvcProjectCamp.Controllers
             heading.HeadingStatus = true;
             hm.HeadingAdd(heading);
             return RedirectToAction("MyHeading");
-           
+
         }
         [HttpGet]
         public ActionResult EditHeading(int id)
@@ -94,11 +98,11 @@ namespace MvcProjectCamp.Controllers
             }
             return RedirectToAction("MyHeading");
         }
-        public ActionResult AllHeading(int page=1) 
+        public ActionResult AllHeading(int page = 1)
         {
-            var headings = hm.GetList().ToPagedList(page,4);
+            var headings = hm.GetList().ToPagedList(page, 4);
             return View(headings);
-        
+
         }
     }
 }

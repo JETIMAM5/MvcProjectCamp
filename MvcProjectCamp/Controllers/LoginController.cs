@@ -6,12 +6,15 @@ using System.Web;
 using System.Web.Mvc;
 using DataAccessLayer.Concrete;
 using System.Web.Security;
+using BusinessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
 
 namespace MvcProjectCamp.Controllers
 {
     [AllowAnonymous]
     public class LoginController : Controller
     {
+        WriterLoginManager wm = new WriterLoginManager(new EFWriterDal());
         // GET: Login
         [HttpGet]
         public ActionResult Index()
@@ -22,7 +25,7 @@ namespace MvcProjectCamp.Controllers
           public ActionResult Index(Admin admin)
         {
             Context c = new Context();
-            var adminuserinfo = c.Admins.FirstOrDefault(x=>x.AdminUserName==admin.AdminUserName && x.AdminPassword==admin.AdminPassword);
+            var adminuserinfo = c.Admins.FirstOrDefault(x => x.AdminUserName == admin.AdminUserName && x.AdminPassword == admin.AdminPassword);
             if (adminuserinfo!=null)
             {
                 FormsAuthentication.SetAuthCookie(adminuserinfo.AdminUserName,false);
@@ -42,8 +45,9 @@ namespace MvcProjectCamp.Controllers
         [HttpPost]
         public ActionResult WriterLogin(Writer writer)
         {
-            Context c = new Context();
-            var writeruserinfo = c.Writers.FirstOrDefault(x => x.WriterMail == writer.WriterMail && x.WriterPassword == writer.WriterPassword);
+            //Context c = new Context();
+            //var writeruserinfo = c.Writers.FirstOrDefault(x => x.WriterMail == writer.WriterMail && x.WriterPassword == writer.WriterPassword);
+            var writeruserinfo = wm.GetWriter(writer.WriterMail, writer.WriterPassword);
             if (writeruserinfo != null)
             {
                 FormsAuthentication.SetAuthCookie(writeruserinfo.WriterMail, false);
