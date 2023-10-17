@@ -2044,6 +2044,7 @@
     <Content Include="AdminLTE-3.0.4\plugins\toastr\toastr.css" />
     <Content Include="AdminLTE-3.0.4\plugins\toastr\toastr.min.css" />
     <Content Include="AdminLTE-3.0.4\plugins\toastr\toastr.min.js" />
+    <Content Include="AdminLTE-3.0.4\.png" />
     <Content Include="AdminLTE-3.0.4\starter.html" />
     <Content Include="AdminLTE-3.0.4\web\css\aos-animation.css" />
     <Content Include="AdminLTE-3.0.4\web\css\aos.css" />
@@ -2070,6 +2071,15 @@
     <Content Include="AdminLTE-3.0.4\web\images\move_up.png" />
     <Content Include="AdminLTE-3.0.4\web\images\next.png" />
     <Content Include="AdminLTE-3.0.4\web\images\prev.png" />
+    <Content Include="AdminLTE-3.0.4\web\images\Screenshot 2023-10-17 193111.png" />
+    <Content Include="AdminLTE-3.0.4\web\images\Screenshot 2023-10-17 193131.png" />
+    <Content Include="AdminLTE-3.0.4\web\images\Screenshot 2023-10-17 193139.png" />
+    <Content Include="AdminLTE-3.0.4\web\images\Screenshot 2023-10-17 193146.png" />
+    <Content Include="AdminLTE-3.0.4\web\images\Screenshot 2023-10-17 193155.png" />
+    <Content Include="AdminLTE-3.0.4\web\images\Screenshot 2023-10-17 193230.png" />
+    <Content Include="AdminLTE-3.0.4\web\images\Screenshot 2023-10-17 193235.png" />
+    <Content Include="AdminLTE-3.0.4\web\images\Screenshot 2023-10-17 193312.png" />
+    <Content Include="AdminLTE-3.0.4\web\images\Screenshot 2023-10-17 193351.png" />
     <Content Include="AdminLTE-3.0.4\web\images\serve.jpg" />
     <Content Include="AdminLTE-3.0.4\web\images\stats.jpg" />
     <Content Include="AdminLTE-3.0.4\web\images\testimonials.jpg" />
